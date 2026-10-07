@@ -1,0 +1,56 @@
+{
+  "name": "mern-blog-backend",
+  "version": "1.0.0",
+  "description": "Blog system REST API: Express, MongoDB, JWT auth, RBAC",
+  "main": "src/server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "seed:admin": "node src/scripts/seedAdmin.js",
+    "test": "jest --runInBand --coverage",
+    "test:unit": "jest tests/unit",
+    "test:integration": "jest tests/integration --runInBand"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.6",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.1",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.11.0",
+    "morgan": "^1.12.1",
+    "passport": "^0.7.0",
+    "passport-facebook": "^3.0.0",
+    "passport-google-oauth20": "^2.0.0",
+    "slugify": "^1.6.9",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "jest": "^30.5.2",
+    "mongodb-memory-server": "^11.3.0",
+    "nodemon": "^3.1.14",
+    "supertest": "^7.3.1"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "setupFiles": [
+      "<rootDir>/tests/setupEnv.js"
+    ],
+    "testTimeout": 60000,
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/server.js",
+      "!src/scripts/**"
+    ],
+    "coverageDirectory": "coverage"
+  }
+}
